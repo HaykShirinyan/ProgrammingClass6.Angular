@@ -38,7 +38,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
             _dbcontext.SaveChanges();
             return Ok(productType);
         }
-        [HttpPut("{Id}")]
+        [HttpPut("{id}")]
         public IActionResult Update(int id, ProductType productType)
         {
             if (id != productType?.Id)
@@ -50,10 +50,10 @@ namespace ProgrammingClass6.Angular.Server.Controllers
             _dbcontext.SaveChanges();
             return Ok(productType);
         }
-        [HttpDelete("{Id}")]
-        public IActionResult Delete(int Id)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
         {
-            var productType = _dbcontext.ProductTypes.SingleOrDefault(pt => pt.Id == Id);
+            var productType = _dbcontext.ProductTypes.SingleOrDefault(pt => pt.Id == id);
             if (productType != null)
             {
                 _dbcontext.ProductTypes.Remove(productType);

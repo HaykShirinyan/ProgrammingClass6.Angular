@@ -5,7 +5,7 @@ using ProgrammingClass6.Angular.Server.Models;
 
 namespace ProgrammingClass6.Angular.Server.Controllers
 {
-    [Route("api/UnitOfMeasures")]
+    [Route("api/Unitofmeasures")]
     [ApiController]
     public class UnitOfMeasurController : ControllerBase
     {
@@ -38,7 +38,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
             _dbcontext.SaveChanges();
             return Ok(unitOfMeasure);
         }
-        [HttpPut("{Id}")]
+        [HttpPut("{id}")]
         public IActionResult Update(int id, UnitOfMeasure unitOfMeasure)
         {
             if (id != unitOfMeasure?.Id)
@@ -49,10 +49,10 @@ namespace ProgrammingClass6.Angular.Server.Controllers
             _dbcontext.SaveChanges();
             return Ok(unitOfMeasure);
         }
-        [HttpDelete("{Id}")]
-        public IActionResult Delete(int Id)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
         {
-            var unitOfMeasure = _dbcontext.UnitOfMeasures.SingleOrDefault(uom => uom.Id == Id);
+            var unitOfMeasure = _dbcontext.UnitOfMeasures.SingleOrDefault(uom => uom.Id == id);
             if (unitOfMeasure != null)
             {
                 _dbcontext.UnitOfMeasures.Remove(unitOfMeasure);
