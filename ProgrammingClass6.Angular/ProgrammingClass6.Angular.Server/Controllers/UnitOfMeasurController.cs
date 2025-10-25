@@ -5,7 +5,7 @@ using ProgrammingClass6.Angular.Server.Models;
 
 namespace ProgrammingClass6.Angular.Server.Controllers
 {
-    [Route("api/Unitofmeasures")]
+    [Route("API/unitofmeasures")]
     [ApiController]
     public class UnitOfMeasurController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
             var unitOfMeasures = _dbcontext.UnitOfMeasures.ToList();
             return Ok(unitOfMeasures);
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             var unitOfMeasure = _dbcontext.UnitOfMeasures.SingleOrDefault(uom => uom.Id == id);
