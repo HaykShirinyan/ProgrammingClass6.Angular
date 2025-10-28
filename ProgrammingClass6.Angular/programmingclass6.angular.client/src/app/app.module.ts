@@ -5,11 +5,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/list/product-list.component';
+import { UnitOfMeasureListComponent } from './unitOfMeasures/list/unitOfMeasure-list.component';
+import { ProductTypeListComponent } from './productTypes/list/productType-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductTypeListComponent,
+    UnitOfMeasureListComponent
   ],
   imports: [
     BrowserModule,
