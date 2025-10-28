@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Новый профиль",
+    "Projects": [
+      {
+        "Path": "ProgrammingClass6.Angular.Server\\ProgrammingClass6.Angular.Server.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "programmingclass6.angular.client\\programmingclass6.angular.client.esproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
