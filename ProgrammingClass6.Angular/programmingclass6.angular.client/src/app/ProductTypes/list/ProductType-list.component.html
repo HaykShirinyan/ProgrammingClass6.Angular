@@ -1,0 +1,29 @@
+
+
+<h1>
+  ProductTypes List
+</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Brabd</th>
+      <th>Type</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let productType of productTypes">
+      <td>{{ productType.id }}</td>
+      <td>{{ productType.name }}</td>
+      <td>{{ productType.brand }}</td>
+      <td>{{ productType.type }}</td>
+      <td>{{ productType.price }}</td>
+      <td>{{ productType.quantity }}</td>
+    </tr>
+  </tbody>
+</table>
