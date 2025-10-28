@@ -8,6 +8,7 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\programmingclass6.angular.client\browser\</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\app\Новая папка\" />
+    <None Remove="src\app\Новая папка\**" />
+    <TypeScriptConfiguration Remove="src\app\Новая папка\**" />
   </ItemGroup>
 </Project>
