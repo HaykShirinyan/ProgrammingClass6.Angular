@@ -10,7 +10,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'productTypes',
+    path: 'ProductTypes',
     component: ProductTypeListComponent
   }
 

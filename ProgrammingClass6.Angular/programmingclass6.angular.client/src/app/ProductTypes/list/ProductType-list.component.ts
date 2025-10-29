@@ -4,9 +4,8 @@ import { ProductTypes } from "../../shared/models/ProductType";
 
 
 @Component({
-
-  templateUrl: './ProductType-list.component.html'
-
+    templateUrl: './ProductType-list.component.html',
+  standalone: false
   })
 export class ProductTypeListComponent implements OnInit {
   private readonly _httpClient: HttpClient;
