@@ -1,5 +1,5 @@
 
 export interface UnitOfMeasure {
   id: number;
-  name: string;
+  unit: string;
 }

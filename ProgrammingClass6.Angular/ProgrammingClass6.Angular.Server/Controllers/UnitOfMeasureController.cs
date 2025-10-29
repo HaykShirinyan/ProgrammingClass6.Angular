@@ -5,7 +5,7 @@ using ProgrammingClass6.Angular.Server.Models;
 
 namespace ProgrammingClass6.Angular.Server.Controllers
 {
-    [Route("api/UnitOfMeasures")]
+    [Route("api/unitOfMeasures")]
     [ApiController]
     public class UnitOfMeasureController : ControllerBase
     {
