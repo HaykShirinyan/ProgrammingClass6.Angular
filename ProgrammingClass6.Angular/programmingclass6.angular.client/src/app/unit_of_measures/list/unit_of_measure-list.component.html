@@ -1,0 +1,29 @@
+
+<h1>
+  Unit of Measures List
+</h1>
+<table class="table">
+  <thead>
+
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>UnitOfMeasureValue</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let unitOfMeasure of unitOfMeasures">
+      <td>{{ unitOfMeasure.id }}</td>
+      <td>{{ unitOfMeasure.name }}</td>
+      <td>{{ unitOfMeasure.type }}</td>
+      <td>{{ unitOfMeasure.unitOfMeasureValue }}</td>
+      <td>{{ unitOfMeasure.price }}</td>
+      <td>{{ unitOfMeasure.quantity }}</td>
+    </tr>
+  </tbody>
+
+</table>

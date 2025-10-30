@@ -7,7 +7,8 @@ import { ProductTypes } from "../../shared/models/ProductType";
     templateUrl: './ProductType-list.component.html',
   standalone: false
   })
-export class ProductTypeListComponent implements OnInit {
+export class ProductTypeListComponent implements OnInit{
+
   private readonly _httpClient: HttpClient;
   public productTypes: ProductTypes[] = [];
 
