@@ -1,0 +1,27 @@
+
+<h1>
+  UnitOfMeasure List
+</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Symbol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let unitOfMeasure of unitOfMeasures">
+      <td>
+        {{ unitOfMeasure.id }}
+      </td>
+      <td>
+        {{ unitOfMeasure.name }}
+      </td>
+      <td>
+        {{ unitOfMeasure.symbol }}
+      </td>
+    </tr>
+  </tbody>
+</table>
