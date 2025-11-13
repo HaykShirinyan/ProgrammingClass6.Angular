@@ -2,28 +2,32 @@
 using Microsoft.AspNetCore.Mvc;
 using ProgrammingClass6.Angular.Server.Data;
 using ProgrammingClass6.Angular.Server.Models;
+using ProgrammingClass6.Angular.Server.Repositories.Implementations;
+using ProgrammingClass6.Angular.Server.Repositories.Definitions;
 
 namespace ProgrammingClass6.Angular.Server.Controllers
 {
-    [Route("api/producttypes")]
+    [Route("api/product-types")]
     [ApiController]
     public class ProductTypeController : ControllerBase
     {
-        private readonly ApplicationDbContext _dbcontext;
-        public ProductTypeController(ApplicationDbContext dbcontext)
+        private readonly IProductTypeRepository _productTypeRepository;
+        public ProductTypeController(IProductTypeRepository productTypeRepository)
         {
-            _dbcontext = dbcontext;
+            _productTypeRepository = productTypeRepository;
         }
         [HttpGet]
+
         public IActionResult GetAll()
         {
-            var productTypes = _dbcontext.ProductTypes.ToList();
+            var productTypes = _productTypeRepository.GetAll();
             return Ok(productTypes);
         }
+
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var productType = _dbcontext.ProductTypes.SingleOrDefault(pt => pt.Id == id);
+            var productType = _productTypeRepository.Get(id);
 
             if (productType == null)
             {
@@ -31,13 +35,14 @@ namespace ProgrammingClass6.Angular.Server.Controllers
             }
             return Ok(productType);
         }
+
         [HttpPost]
         public IActionResult Create(ProductType productType)
         {
-            _dbcontext.ProductTypes.Add(productType);
-            _dbcontext.SaveChanges();
+            _productTypeRepository.Add(productType);
             return Ok(productType);
         }
+
         [HttpPut("{id}")]
         public IActionResult Update(int id, ProductType productType)
         {
@@ -46,18 +51,16 @@ namespace ProgrammingClass6.Angular.Server.Controllers
                 return BadRequest("Id in the body doesn't match with Id in the URL.");
             }
 
-            _dbcontext.ProductTypes.Update(productType);
-            _dbcontext.SaveChanges();
+            _productTypeRepository.Update(productType);
             return Ok(productType);
         }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var productType = _dbcontext.ProductTypes.SingleOrDefault(pt => pt.Id == id);
+            var productType = _productTypeRepository.Delete(id);
             if (productType != null)
             {
-                _dbcontext.ProductTypes.Remove(productType);
-                _dbcontext.SaveChanges();
                 return Ok(productType);
             }
             return NotFound();

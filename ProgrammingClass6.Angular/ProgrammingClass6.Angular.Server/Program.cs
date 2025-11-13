@@ -4,6 +4,7 @@ using ProgrammingClass6.Angular.Server.Data;
 using ProgrammingClass6.Angular.Server.Repositories.Definitions;
 using ProgrammingClass6.Angular.Server.Repositories.Implementations;
 
+
 namespace ProgrammingClass6.Angular.Server
 {
     public class Program
@@ -25,6 +26,7 @@ namespace ProgrammingClass6.Angular.Server
             });
 
             builder.Services.AddTransient<IProductRepository, ProductRepository>();
+            builder.Services.AddTransient<IProductTypeRepository, ProductTypeRepository>();
 
             var app = builder.Build();
 
