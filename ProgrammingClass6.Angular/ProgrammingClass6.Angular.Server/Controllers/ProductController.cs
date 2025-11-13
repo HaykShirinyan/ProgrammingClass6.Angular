@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using ProgrammingClass6.Angular.Server.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProgrammingClass6.Angular.Server.Models;
+using ProgrammingClass6.Angular.Server.Repositories.Definitions;
 
 namespace ProgrammingClass6.Angular.Server.Controllers
 {
@@ -9,26 +8,24 @@ namespace ProgrammingClass6.Angular.Server.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly IProductRepository _productRepository;
 
-        public ProductController(ApplicationDbContext dbContext)
+        public ProductController(IProductRepository productRepository)
         {
-            _dbContext = dbContext;
+            _productRepository = productRepository;
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var products = _dbContext.Products.ToList();
+            var products = _productRepository.GetAll();
             return Ok(products);
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var product = _dbContext
-                .Products
-                .SingleOrDefault(p => p.Id == id);
+            var product = _productRepository.Get(id);
 
             if (product == null)
             {
@@ -41,8 +38,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            _dbContext.Products.Add(product);
-            _dbContext.SaveChanges();
+            _productRepository.Add(product);
 
             return Ok(product);
         }
@@ -55,8 +51,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
                 return BadRequest("Id in the body doesn't match with Id in the URL.");
             }
 
-            _dbContext.Products.Update(product);
-            _dbContext.SaveChanges();
+            _productRepository.Update(product);
 
             return Ok(product);
         }
@@ -64,15 +59,10 @@ namespace ProgrammingClass6.Angular.Server.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var product = _dbContext
-                .Products
-                .SingleOrDefault(p => p.Id == id);
+            var product = _productRepository.Delete(id);
 
             if (product != null)
             {
-                _dbContext.Products.Remove(product);
-                _dbContext.SaveChanges();
-
                 return Ok(product);
             }
 
