@@ -19,7 +19,7 @@ export class UnitOfMeasureListComponent implements OnInit{
 
   public ngOnInit(): void {
 
-    this._http.get<UnitOfMeasure[]>('api/unitOfMeasures')
+    this._http.get<UnitOfMeasure[]>('api/unit-of-measures')
       .subscribe(unitOfMeasuresFromApi => {
         this.unitOfMeasures = unitOfMeasuresFromApi;
       });

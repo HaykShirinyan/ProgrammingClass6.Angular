@@ -5,7 +5,7 @@ using ProgrammingClass6.Angular.Server.Models;
 
 namespace ProgrammingClass6.Angular.Server.Controllers
 {
-    [Route("api/productTypes")]
+    [Route("api/product-types")]
     [ApiController]
     public class ProductTypeController : ControllerBase
     {
