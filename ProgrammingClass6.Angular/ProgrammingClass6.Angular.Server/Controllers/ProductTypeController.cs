@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using ProgrammingClass6.Angular.Server.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProgrammingClass6.Angular.Server.Models;
-using ProgrammingClass6.Angular.Server.Repositories.Implementations;
 using ProgrammingClass6.Angular.Server.Repositories.Definitions;
 
 namespace ProgrammingClass6.Angular.Server.Controllers
