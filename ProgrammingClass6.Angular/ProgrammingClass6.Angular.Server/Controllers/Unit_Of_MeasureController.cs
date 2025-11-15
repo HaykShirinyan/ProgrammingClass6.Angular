@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProgrammingClass6.Angular.Server.Models;
-using ProgrammingClass6.Angular.Server.Repositories.Implementations;
+using ProgrammingClass6.Angular.Server.Repositories.Definitions;
+
 
 namespace ProgrammingClass6.Angular.Server.Controllers
 {
@@ -8,8 +9,8 @@ namespace ProgrammingClass6.Angular.Server.Controllers
     [ApiController]
     public class Unit_Of_MeasureController : ControllerBase
     {
-        private readonly UnitOfMeasureRepository _unitOfMeasureRepository;
-        public Unit_Of_MeasureController(UnitOfMeasureRepository unitOfMeasureRepository)
+        private readonly IUnitOfMeasureRepository _unitOfMeasureRepository;
+        public Unit_Of_MeasureController(IUnitOfMeasureRepository unitOfMeasureRepository)
         {
             _unitOfMeasureRepository = unitOfMeasureRepository;
         }
