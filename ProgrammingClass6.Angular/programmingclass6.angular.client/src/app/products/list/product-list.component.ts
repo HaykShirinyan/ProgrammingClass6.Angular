@@ -6,16 +6,16 @@ import { ProductService } from "../../shared/services/product.service";
   templateUrl: './product-list.component.html',
   standalone: false
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit{
   private readonly _productService: ProductService;
 
   public products: Product[] = [];
 
-  constructor(productService: ProductService) {
+  constructor(productService: ProductService)  {
     this._productService = productService;
   }
 
-  public ngOnInit(): void {
+  public ngOnInit(): void  {
     this._productService.getAll()
       .subscribe(productsFromApi => {
         this.products = productsFromApi;

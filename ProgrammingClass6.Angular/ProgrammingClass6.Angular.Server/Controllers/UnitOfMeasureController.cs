@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using ProgrammingClass6.Angular.Server.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProgrammingClass6.Angular.Server.Models;
+using ProgrammingClass6.Angular.Server.Repositories.Definitions;
+
 
 namespace ProgrammingClass6.Angular.Server.Controllers
 {
@@ -9,17 +9,17 @@ namespace ProgrammingClass6.Angular.Server.Controllers
     [ApiController]
     public class UnitOfMeasureController : ControllerBase
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly IUnitOfMeasureRepository _unitOfMeasureRepository;
 
-        public UnitOfMeasureController(ApplicationDbContext dbContext)
+        public UnitOfMeasureController(IUnitOfMeasureRepository unitOfMeasureRepository)
         {
-            _dbContext = dbContext;
+            _unitOfMeasureRepository = unitOfMeasureRepository;
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var unitOfMeasures = _dbContext.UnitOfMeasures.ToList();
+            var unitOfMeasures = _unitOfMeasureRepository.GetAll();
 
             return Ok(unitOfMeasures);
         }
@@ -27,7 +27,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id) 
         {
-            var unitOfMeasure = _dbContext.UnitOfMeasures.SingleOrDefault(p => p.Id == id);
+            var unitOfMeasure = _unitOfMeasureRepository.Get(id);
 
             if (unitOfMeasure == null) 
             {
@@ -39,8 +39,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
         [HttpPost]
         public IActionResult Create(UnitOfMeasure unitOfMeasure) 
         {
-            _dbContext.UnitOfMeasures.Add(unitOfMeasure);
-            _dbContext.SaveChanges();
+            _unitOfMeasureRepository.Add(unitOfMeasure);
 
             return Ok(unitOfMeasure);
         }
@@ -53,8 +52,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
                 return BadRequest("Id in the body doesn't match with Id in the URL.");
             }
 
-            _dbContext.UnitOfMeasures.Update(unitOfMeasure);
-            _dbContext.SaveChanges();
+            _unitOfMeasureRepository.Update(unitOfMeasure);
 
             return Ok(unitOfMeasure);
         }
@@ -62,15 +60,10 @@ namespace ProgrammingClass6.Angular.Server.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var unitOfMeasure = _dbContext
-                .UnitOfMeasures
-                .SingleOrDefault(unitOfMeasure => unitOfMeasure.Id == id);
+            var unitOfMeasure = _unitOfMeasureRepository.Delete(id);
 
             if(unitOfMeasure != null)
-            {
-                _dbContext.UnitOfMeasures.Remove(unitOfMeasure);
-                _dbContext.SaveChanges();
-
+            {               
                 return Ok(unitOfMeasure);
             }
 

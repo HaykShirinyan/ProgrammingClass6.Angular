@@ -10,11 +10,11 @@ const routes: Routes = [
     component: ProductListComponent
   },
   {
-    path: 'productTypes',
+    path: 'product-types',
     component: ProductTypeListComponent
   },
   {
-    path: 'unitOfMeasures',
+    path: 'unit-of-measures',
     component: UnitOfMeasureListComponent
   }
 ];
