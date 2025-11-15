@@ -43,25 +43,6 @@ namespace ProgrammingClass6.Angular.Server.Repositories.Implementations
             }
             return unitOfMeasure;
         }
-
-        LinkedList<Unit_Of_Measure> IUnitOfMeasureRepository.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        void IUnitOfMeasureRepository.Add(Unit_Of_Measure unitOfMeasure)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IUnitOfMeasureRepository.Update(Unit_Of_Measure unitOfMeasure)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IUnitOfMeasureRepository.Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
+              
     }
 }

@@ -17,7 +17,7 @@ namespace ProgrammingClass6.Angular.Server.Repositories.Implementations
         {
             return _dbcontext.ProductTypes.ToList();
         }
-        public ProductType? Get(int id)
+        public ProductType Get(int id)
         {
             return _dbcontext.ProductTypes.SingleOrDefault(pt => pt.Id == id);
         }
