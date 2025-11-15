@@ -13,12 +13,14 @@ namespace ProgrammingClass6.Angular.Server.Controllers
         {
             _unitOfMeasureRepository = unitOfMeasureRepository;
         }
+
         [HttpGet]
         public IActionResult GetAll()
         {
             var unitOfMeasures = _unitOfMeasureRepository.GetAll();
             return Ok(unitOfMeasures);
         }
+
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -29,6 +31,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
             }
             return Ok(unitOfMeasure);
         }
+
         [HttpPost]
         public IActionResult Create(Unit_Of_Measure unit_Of_measure)
         {
@@ -37,6 +40,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
             return Ok(unit_Of_measure);
 
         }
+
         [HttpPut("{id}")]
         public IActionResult Update(int id, Unit_Of_Measure unit_Of_Measure)
         {
@@ -47,6 +51,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
            _unitOfMeasureRepository.Update(unit_Of_Measure);
             return Ok(unit_Of_Measure);
         }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
