@@ -1,24 +1,24 @@
-import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { ProductType } from "../../shared/models/productType";
+import { ProductTypeService } from "../../shared/services/productType.service";
 
 @Component({
   templateUrl: './productType-list.component.html',
   standalone: false
 })
 export class ProductTypeListComponent implements OnInit {
-  private _http!: HttpClient;
+  private readonly _productTypeService: ProductTypeService;
 
   public productTypes: ProductType[] = [];
 
-  cunstructor(http: HttpClient) {
-    this._http = http;
+  constructor(productTypeService: ProductTypeService) {
+    this._productTypeService = productTypeService;
   }
-  public ngOnInit(): void {
-    this._http.get<ProductType[]>('/api/productTypes')
-      .subscribe(productTypesFromApi => {
-        this.productTypes = productTypesFromApi;
 
+  public ngOnInit(): void {
+    this._productTypeService.getAll()
+      .subscribe((productTypesFromApi: ProductType[]) => {
+        this.productTypes = productTypesFromApi;
       });
   }
 }
