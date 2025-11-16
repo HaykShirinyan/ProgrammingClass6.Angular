@@ -9,7 +9,7 @@ import { UnitOfMeasureService } from "../../shared/services/unitOfMeasure.Servic
 export class UnitOfMeasureListComponent implements OnInit {
   private readonly _unitOfMeasureService: UnitOfMeasureService;
 
-  public unitsOfMeasure: UnitOfMeasure[] = [];
+  public unitOfMeasures: UnitOfMeasure[] = [];
 
   constructor(unitOfMeasureService: UnitOfMeasureService) {
     this._unitOfMeasureService = unitOfMeasureService;
@@ -17,8 +17,8 @@ export class UnitOfMeasureListComponent implements OnInit {
 
   public ngOnInit(): void {
     this._unitOfMeasureService.getAll()
-      .subscribe((unitsFromApi: UnitOfMeasure[]) => {
-        this.unitsOfMeasure = unitsFromApi;
+      .subscribe((unitOfMeasuresFromApi: UnitOfMeasure[]) => {
+        this.unitOfMeasures = unitOfMeasuresFromApi;
       });
   }
 }
