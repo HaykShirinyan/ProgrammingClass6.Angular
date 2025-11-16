@@ -1,0 +1,64 @@
+
+<h1>
+  Create Product
+</h1>
+
+<form #productForm="ngForm" (ngSubmit)="createProduct(productForm)">
+  <div class="mb-3">
+    <label class="form-label" for="product-name">
+      Name
+    </label>
+    <input id="product-name"
+           name="name"
+           required
+           maxlength="100"
+           class="form-control"
+           [(ngModel)]="product.name"
+           #nameField="ngModel" />
+    <div *ngIf="nameField.errors && productForm.submitted" class="text-danger">
+        <div *ngIf="nameField.errors['required']">
+          The Name field is required
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="product-description">
+      Description
+    </label>
+    <textarea id="product-description"
+              name="description"
+              maxlength="500"
+              class="form-control"
+              [(ngModel)]="product.description">
+    </textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="product-quantity">
+      Quantity
+    </label>
+    <input id="product-quantity"
+           name="quantity"
+           class="form-control"
+           type="number"
+           [(ngModel)]="product.quantity" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="product-unit-price">
+      Unit Price
+    </label>
+    <input id="product-unit-price"
+           name="unitPrice"
+           class="form-control"
+           type="number"
+           [(ngModel)]="product.unitPrice" />
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-primary">
+      Save
+    </button>
+  </div>
+</form>
