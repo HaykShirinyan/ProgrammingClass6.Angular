@@ -3,6 +3,12 @@
   Product List
 </h1>
 
+<div class="d-flex justify-content-end">
+  <a class="btn btn-primary" [routerLink]="['create']">
+    Create Product
+  </a>
+</div>
+
 <table class="table">
   <thead>
     <tr>
@@ -11,6 +17,7 @@
       <th>Description</th>
       <th>Quantity</th>
       <th>Unit Price</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -30,6 +37,11 @@
       </td>
       <td>
         {{product.unitPrice}}
+      </td>
+      <td>
+        <a class="btn btn-secondary" [routerLink]="['edit', product.id]">
+          Edit
+        </a>
       </td>
     </tr>
   </tbody>
