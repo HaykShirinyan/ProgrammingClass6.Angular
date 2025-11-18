@@ -14,4 +14,7 @@ export class ProductTypeService {
   public getAll(): Observable<ProductTypes[]> {
     return this._httpClient.get<ProductTypes[]>('api/product-types');
   }
+  public create(productType: ProductTypes): Observable<ProductTypes> {
+    return this._httpClient.post<ProductTypes>('api/product-types', productType);
+  }
 }
