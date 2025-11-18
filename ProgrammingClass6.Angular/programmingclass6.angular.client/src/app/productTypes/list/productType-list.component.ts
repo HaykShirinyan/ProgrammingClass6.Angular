@@ -3,7 +3,7 @@ import { ProductType } from "../../shared/models/productType";
 import { ProductTypeService } from "../../shared/services/productType.service";
 
 @Component({
-  templateUrl: './productType-list.component.html',
+  templateUrl: './producttype-list.component.html',
   standalone: false
 })
 export class ProductTypeListComponent implements OnInit
