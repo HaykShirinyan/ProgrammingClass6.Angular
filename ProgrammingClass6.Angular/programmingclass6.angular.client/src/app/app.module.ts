@@ -18,8 +18,7 @@ import { ProductTypeListComponent } from './productTypes/list/productType-list.c
     AppComponent,
     ProductListComponent,
     CreateProductComponent,
-    EditProductComponent
-    ProductListComponent,
+    EditProductComponent,   
     ProductTypeListComponent,
     UnitOfMeasureListComponent
   ],
