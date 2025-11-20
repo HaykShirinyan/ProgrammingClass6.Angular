@@ -17,4 +17,11 @@ export class ProductTypeService {
   public create(productType: ProductTypes): Observable<ProductTypes> {
     return this._httpClient.post<ProductTypes>('api/product-types', productType);
   }
+
+  public get(id: number): Observable<ProductTypes> {
+    return this._httpClient.get<ProductTypes>(`api/product-types/` + id);
+  }
+  public update(productType: ProductTypes): Observable<void> {
+    return this._httpClient.put<void>(`api/product-types/` + productType.id, productType);
+  }
 }

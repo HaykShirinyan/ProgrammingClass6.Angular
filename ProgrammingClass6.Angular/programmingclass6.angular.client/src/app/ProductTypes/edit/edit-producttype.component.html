@@ -1,0 +1,77 @@
+
+<h1>
+  Edit Product Type
+</h1>
+
+<form #productForm="ngForm" (ngSubmit)="updateProductType(productForm)">
+  <div class="mb-3">
+    <label>
+      Name
+    </label>
+    <input id="producttype-name"
+           name="name"
+           required
+           type="text"
+           maxlength="100"
+           class="form-control"
+           [(ngModel)]="productType.name"
+           #nameField="ngModel" />
+    <div *ngIf="nameField.errors && productForm.submitted" class="text-danger">
+      <div *ngIf="nameField.errors?.['required']">
+        Name is required.
+      </div>
+
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="producttype-brand">
+      Brand
+    </label>
+    <textarea id="producttype-brand"
+              name="brand"
+              required
+              rows="3"
+              class="form-control"
+              [(ngModel)]="productType.brand">
+    </textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="producttype-type">
+      Type
+    </label>
+    <input id="producttype-type"
+           name="type"
+           type="text"
+           class="form-control"
+           [(ngModel)]="productType.type" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="producttype-price">
+      Price
+    </label>
+    <input id="producttype-price"
+           name="price"
+           type="number"
+           class="form-control"
+           [(ngModel)]="productType.price" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="producttype-quantity">
+      Quantity
+    </label>
+    <input id="producttype-quantity"
+           name="quantity"
+           type="number"
+           class="form-control"
+           [(ngModel)]="productType.quantity" />
+  </div>
+
+  <button type="submit" class="btn btn-primary">
+    Save
+  </button>
+
+</form>

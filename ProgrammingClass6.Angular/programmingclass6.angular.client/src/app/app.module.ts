@@ -7,18 +7,27 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/list/product-list.component';
 import { ProductTypeListComponent } from './ProductTypes/list/ProductType-list.component';
 import { UnitOfMeasureListComponent } from './unit_of_measures/list/unit_of_measure-list.component';
+import { FormsModule } from '@angular/forms';
+import { EditProductComponent } from './products/edit/edit-product.component';
+import { CreateProductComponent } from './products/create/create-product.component';
+import { CreateProductTypeComponent } from './ProductTypes/create/create-producttype.component';
+import { EditProductTypeComponent } from './ProductTypes/edit/edit-producttype.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
+    CreateProductComponent,
+    EditProductComponent,
     ProductTypeListComponent,
-    UnitOfMeasureListComponent
+    UnitOfMeasureListComponent,
+    CreateProductTypeComponent,
+    EditProductTypeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-    
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi())

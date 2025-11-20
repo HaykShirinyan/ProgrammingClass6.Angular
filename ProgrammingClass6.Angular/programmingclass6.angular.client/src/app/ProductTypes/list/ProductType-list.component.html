@@ -1,19 +1,24 @@
-
-
 <h1>
   ProductTypes List
 </h1>
 
+<div class="d-flex justify-content-end">
+  <a class="btn btn-primary" [routerLink]="['create']">
+    Create New Product Type
+  </a>
+</div>
+
 <table class="table">
   <thead>
 
-    <tr>
+      <tr>
       <th>ID</th>
       <th>Name</th>
-      <th>Brabd</th>
+      <th>Brand</th>
       <th>Type</th>
       <th>Price</th>
       <th>Quantity</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -25,7 +30,11 @@
       <td>{{ productType.type }}</td>
       <td>{{ productType.price }}</td>
       <td>{{ productType.quantity }}</td>
+      <td>
+        <a class="btn btn-secondary" [routerLink]="['edit', productType.id]">
+          Edit
+        </a>
+            </td>
     </tr>
   </tbody>
-
 </table>
