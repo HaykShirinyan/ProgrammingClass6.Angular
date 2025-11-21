@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UnitOfMeasure } from "../../shared/models/unitOfMeasure";
-import { UnitOfMeasureService } from "../../shared/services/unitOfMeasure.Service";
+import { UnitOfMeasureService } from "../../shared/services/unitOfMeasure.service";
 
 @Component({
   templateUrl: './unitOfMeasure-list.component.html',
