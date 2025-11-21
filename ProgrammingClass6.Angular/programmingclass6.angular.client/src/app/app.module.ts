@@ -17,7 +17,8 @@ import { UnitOfMeasureListComponent } from './unitOfMeasures/list/unitOfMeasure-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi())
