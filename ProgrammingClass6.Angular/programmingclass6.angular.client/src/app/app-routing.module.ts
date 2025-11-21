@@ -8,15 +8,39 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductListComponent
- },
+  },
+  {
+    path: 'products/create',
+    component: ProductListComponent
+  },
+  {
+    path: 'products/edit/:id',
+    component: ProductListComponent
+  },
 
   {
     path: 'productTypes',
     component: ProductTypeListComponent
   },
+  {
+    path: 'productTypes/create',
+    component: ProductTypeListComponent
+  },
+  {
+    path: 'productTypes/edit/:id',
+    component: ProductTypeListComponent 
+  },
 
   {
     path: 'unitOfMeasures',
+    component: UnitOfMeasureListComponent
+  },
+  {
+    path: 'unitOfMeasures/create',
+    component: UnitOfMeasureListComponent
+  },
+  {
+    path: 'unitOfMeasures/edit/:id',
     component: UnitOfMeasureListComponent
   }
 ];

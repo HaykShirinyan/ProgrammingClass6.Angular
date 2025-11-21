@@ -3,12 +3,19 @@
   ProductType List
 </h1>
 
+<div class="d-flex justify-content-end">
+<a class="btn btn-primary" [routerLink]="['create']">
+  Create ProductType
+</a>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
       <th>Name</th>
       <th>Description</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +28,11 @@
       </td>
       <td>
         {{ productType.description }}
+      </td>
+      <td>
+        <a class="btn btn-secondary" [routerLink]="['edit', productType.id]">
+          Edit
+        </a>
       </td>
     </tr>
   </tbody>
