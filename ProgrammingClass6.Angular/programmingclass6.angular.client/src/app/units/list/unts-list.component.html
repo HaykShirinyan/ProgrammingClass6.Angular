@@ -1,0 +1,26 @@
+<h1>Units of Measure</h1>
+
+<div class="d-flex justify-content-end">
+  <a class="btn btn-primary" [routerLink]="['create']">
+    Create Units of Measure
+  </a>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Unit</th>
+      <th>Auctions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let unit of units">
+      <td>{{ unit.id }}</td>
+      <td>{{ unit.unit }}</td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['edit', unit.id]">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
