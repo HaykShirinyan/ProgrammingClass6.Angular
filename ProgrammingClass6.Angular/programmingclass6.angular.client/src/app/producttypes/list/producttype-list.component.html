@@ -1,0 +1,33 @@
+<h1>
+  Product Types
+</h1>
+
+<div class="d-flex justify-content-end">
+  <a class="btn btn-primary" [routerLink]="['create']">
+    Create Product Type
+  </a>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Brand</th>
+      <th>Auctions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let type of producttypes">
+      <td>
+        {{type.id}}
+      </td>
+      <td>
+        {{type.brandName}}
+      </td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['edit', type.id]">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

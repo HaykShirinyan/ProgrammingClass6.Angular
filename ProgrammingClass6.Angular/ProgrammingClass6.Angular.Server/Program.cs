@@ -1,4 +1,3 @@
-
 using Microsoft.EntityFrameworkCore;
 using ProgrammingClass6.Angular.Server.Data;
 using ProgrammingClass6.Angular.Server.Repositories.Definitions;
@@ -25,6 +24,8 @@ namespace ProgrammingClass6.Angular.Server
             });
 
             builder.Services.AddTransient<IProductRepository, ProductRepository>();
+            builder.Services.AddTransient<IProductTypeRepository, ProductTypeRepository>();
+            builder.Services.AddTransient<IUnitOfMeasureRepository, UnitOfMeasureRepository>();
 
             var app = builder.Build();
 

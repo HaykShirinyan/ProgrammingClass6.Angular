@@ -1,0 +1,14 @@
+<h1>Edit Product Type</h1>
+
+<form #typeForm="ngForm" (ngSubmit)="updateProductType(typeForm)">
+  <div class="mb-3">
+    <label for="productType-brandName" class="form-label">Brand Name</label>
+    <input id="productType-brandName"
+           name="brandName"
+           class="form-control"
+           [(ngModel)]="productType.brandName"
+           required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
