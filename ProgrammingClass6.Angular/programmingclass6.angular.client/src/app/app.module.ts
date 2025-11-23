@@ -8,13 +8,15 @@ import { ProductListComponent } from './products/list/product-list.component';
 import { CreateProductComponent } from './products/create/create-product.component';
 import { FormsModule } from '@angular/forms';
 import { EditProductComponent } from './products/edit/edit-product.component';
+import { LoadingIdicatorComponent } from './shared/comppnents/loading-indicator/loading-indicator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     CreateProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    LoadingIdicatorComponent
   ],
   imports: [
     BrowserModule,
