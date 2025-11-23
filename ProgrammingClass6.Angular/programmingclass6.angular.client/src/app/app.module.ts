@@ -12,6 +12,10 @@ import { EditProductComponent } from './products/edit/edit-product.component';
 import { CreateProductComponent } from './products/create/create-product.component';
 import { CreateProductTypeComponent } from './ProductTypes/create/create-producttype.component';
 import { EditProductTypeComponent } from './ProductTypes/edit/edit-producttype.component';
+import { CreateUnitOfMeasureComponent } from './unit_of_measures/create/create-unitofmeasure.component';
+import { EditUnitOfMeasureComponent } from './unit_of_measures/edit/edit-unitofmeasure.component';
+
+
 
 @NgModule({
   declarations: [
@@ -23,6 +27,8 @@ import { EditProductTypeComponent } from './ProductTypes/edit/edit-producttype.c
     UnitOfMeasureListComponent,
     CreateProductTypeComponent,
     EditProductTypeComponent,
+    CreateUnitOfMeasureComponent,
+    EditUnitOfMeasureComponent
   ],
   imports: [
     BrowserModule,

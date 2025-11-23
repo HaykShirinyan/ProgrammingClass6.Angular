@@ -1,0 +1,81 @@
+
+
+<h1>
+  Edit Unit Of Measure
+</h1>
+
+<form #unitOfMeasureForm="ngForm" (ngSubmit)="updateUnitOfMeasure(unitOfMeasureForm)">
+  <div class="mb-3">
+    <label>
+      Name
+    </label>
+    <input id="unitOfMeasure-name"
+           name="name"
+           required
+           maxlength="100"
+           class="form-control"
+           [(ngModel)]="unitOfMeasure.name"
+           #nameField="ngModel" />
+
+    <div *ngIf="nameField.errors && unitOfMeasureForm.submitted" class="text-danger">
+      <div *ngIf="nameField.errors?.['riquired']">
+        This field is required.
+      </div>
+
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-control" for="unitOfMesure-type">
+      Type
+    </label>
+    <textarea id="unitOfMeasure-type"
+              name="type"
+              required
+              maxlength="500"
+              class="form-control"
+              [(ngModel)]="unitOfMeasure.type">
+</textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-control" for="unitOfMeasure-unitOfMeasureValue">
+      Unit Of Measure Value
+    </label>
+    <input id="unitOfMeasure-unitOfMeasureValue"
+           name="unitOfMesureValue"
+           class="form-control"
+           type="number"
+           [(ngModel)]="unitOfMeasure.unitOfMeasureValue" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-control" for="unitOfMeasure-price">
+      Price
+    </label>
+    <input id="unitOfMeasure-price"
+           name="price"
+           class="form-control"
+           type="number"
+           [(ngModel)]="unitOfMeasure.price" />
+
+  </div>
+
+  <div class="mb-3">
+    <label class="form-control" for="unitOfMeasure-quantity">
+      Quantity
+    </label>
+    <input id="unitOfMeasure-quantity"
+           name="quantity"
+           class="form-control"
+           type="number"
+           [(ngModel)]="unitOfMeasure.quantity" />
+  </div>
+  <button type="submit" class="btn btn-primary">
+    Save
+  </button>
+</form>
+
+
+
+
+

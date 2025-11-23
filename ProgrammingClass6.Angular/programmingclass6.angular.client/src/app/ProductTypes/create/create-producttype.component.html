@@ -19,7 +19,7 @@
            #nameField="ngModel" />
     <div *ngIf="nameField.errors && productForm.submitted" class="text-danger">
       <div *ngIf="nameField.errors?.['required']">
-        Name is required.
+        This field is required.
       </div>
 
     </div>
@@ -32,7 +32,7 @@
     <textarea id="producttype-brand"
               name="brand"
               required
-              rows="3"
+              maxlength="500"
               class="form-control"
               [(ngModel)]="productType.brand">
     </textarea>

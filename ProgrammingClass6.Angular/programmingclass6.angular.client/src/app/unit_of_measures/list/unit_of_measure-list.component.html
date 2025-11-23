@@ -2,6 +2,13 @@
 <h1>
   Unit of Measures List
 </h1>
+
+<div class="d-flex justify-content-end">
+  <a class="btn btn-primary" [routerLink]="['create']">
+    Create New Unit of Measure
+  </a>
+</div>
+
 <table class="table">
   <thead>
 
@@ -12,6 +19,7 @@
       <th>UnitOfMeasureValue</th>
       <th>Price</th>
       <th>Quantity</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -23,7 +31,12 @@
       <td>{{ unitOfMeasure.unitOfMeasureValue }}</td>
       <td>{{ unitOfMeasure.price }}</td>
       <td>{{ unitOfMeasure.quantity }}</td>
-    </tr>
+      <td>
+        <a class="btn btn-secondary" [routerLink]="['edit', unitOfMeasure.id]">
+          Edit
+        </a>
+
+</tr>
   </tbody>
 
 </table>

@@ -7,6 +7,8 @@ import { CreateProductComponent } from './products/create/create-product.compone
 import { EditProductComponent } from './products/edit/edit-product.component';
 import { CreateProductTypeComponent } from './ProductTypes/create/create-producttype.component';
 import { EditProductTypeComponent } from './ProductTypes/edit/edit-producttype.component';
+import { CreateUnitOfMeasureComponent } from './unit_of_measures/create/create-unitofmeasure.component';
+import { EditUnitOfMeasureComponent } from './unit_of_measures/edit/edit-unitofmeasure.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,14 @@ const routes: Routes = [
   {
     path: 'product-types/edit/:id',
     component: EditProductTypeComponent
+  },
+  {
+    path: 'unit-of-measures/create',
+    component: CreateUnitOfMeasureComponent
+  },
+  {
+    path: 'unit-of-measures/edit/:id',
+    component: EditUnitOfMeasureComponent
   }
 ];
 

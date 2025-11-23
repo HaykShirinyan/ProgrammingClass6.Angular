@@ -1,6 +1,6 @@
 
 import { Component, OnInit} from '@angular/core';
-import { UnitOfMeasures } from '../../shared/models/unit_ot_measure';
+import { UnitOfMeasures } from '../../shared/models/unit_of_measure';
 import { UnitOfMeasureService } from '../../shared/services/unit-of-measure.service';
 
 @Component({
