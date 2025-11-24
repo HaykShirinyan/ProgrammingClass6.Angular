@@ -15,6 +15,7 @@ export class CreateUnitOfMeasureComponent {
   private readonly _unitOfMeasureService: UnitOfMeasureService;
   private readonly _router: Router;
 
+  public isLoading: boolean = false;
   public unitOfMeasure: UnitOfMeasures = {};
 
   constructor( _unitOfMeasureService: UnitOfMeasureService, router: Router) {
@@ -24,11 +25,13 @@ export class CreateUnitOfMeasureComponent {
 
   public createUnitOfMeasure(unitOfMeasureForm: NgForm): void {
     if (unitOfMeasureForm.valid) {
+       this.isLoading = true;
        this._unitOfMeasureService.create(this.unitOfMeasure)
          .subscribe(() => {
            this._router.navigate(['/unit_of_measures']);
-    })
-   }
+         })
+         .add(() => this.isLoading = false);
+    }
   }
    
 }

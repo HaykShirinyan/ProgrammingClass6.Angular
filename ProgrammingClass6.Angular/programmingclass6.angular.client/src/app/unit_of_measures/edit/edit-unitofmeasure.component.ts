@@ -14,6 +14,7 @@ export class EditUnitOfMeasureComponent implements OnInit{
   private readonly _activatedRoute: ActivatedRoute;
   private readonly _router: Router;
 
+  public isLoading: boolean = false;
   public unitOfMeasure: UnitOfMeasures = {};
 
   constructor(unitOfMeasureService: UnitOfMeasureService,
@@ -36,10 +37,12 @@ export class EditUnitOfMeasureComponent implements OnInit{
   }
   public updateUnitOfMeasure(unitOfMeasureForm: NgForm): void {
     if (unitOfMeasureForm.valid) {
+      this.isLoading = true;
       this._unitOfMeasureService.update(this.unitOfMeasure)
         .subscribe(() => {
           this._router.navigate(['/unit_of_measures']);
-        });
+        })
+        .add(() => this.isLoading = false);
     }
   }
 }

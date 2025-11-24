@@ -11,14 +11,17 @@ export class ProductTypeListComponent implements OnInit{
 
   private readonly _productTypeService: ProductTypeService
   public productTypes: ProductTypes[] = [];
+  public isLoading: boolean = false;
 
   constructor(productTypeService: ProductTypeService) {
     this._productTypeService = productTypeService;
   }
   public ngOnInit(): void {
+    this.isLoading = true;
     this._productTypeService.getAll()
       .subscribe(productTypesFromApi => {
         this.productTypes = productTypesFromApi;
+        this.isLoading = false;
       });
   }
 }

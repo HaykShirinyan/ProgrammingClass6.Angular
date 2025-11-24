@@ -16,6 +16,7 @@ export class EditProductTypeComponent implements OnInit {
   private readonly _activatedRoute: ActivatedRoute;
   private readonly _router: Router;
 
+  public isLoading: boolean = false;
   public productType: ProductTypes = {};
 
   constructor(
@@ -39,10 +40,12 @@ export class EditProductTypeComponent implements OnInit {
 
   public updateProductType(productForm: NgForm): void {
     if (productForm.valid) {
+      this.isLoading = true;
       this._productTypeService.update(this.productType)
         .subscribe(() => {
           this._router.navigate(['/product-types']);
-        });
+        })
+        .add(() => this.isLoading = false);
     }
   }
  }

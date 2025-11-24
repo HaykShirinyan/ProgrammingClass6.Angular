@@ -14,6 +14,7 @@ export class CreateProductTypeComponent {
   private readonly _productTypeService: ProductTypeService;
   private readonly _router: Router;
   public productType: ProductTypes = {};
+  public isLoading: boolean = false;
 
   constructor(productTypeService: ProductTypeService, router: Router) {
     this._productTypeService = productTypeService;
@@ -22,10 +23,12 @@ export class CreateProductTypeComponent {
 
   public createProductType(productForm: NgForm): void {
     if (productForm.valid) {
+      this.isLoading = true;
       this._productTypeService.create(this.productType)
         .subscribe(() => {
           this._router.navigate(['/product-types']);
-      });
+        })
+        .add(() => this.isLoading = false);
     }
   }
 }
