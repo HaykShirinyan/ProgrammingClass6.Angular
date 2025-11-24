@@ -15,6 +15,7 @@ import { EditProductTypeComponent } from './ProductTypes/edit/edit-producttype.c
 import { CreateUnitOfMeasureComponent } from './unit_of_measures/create/create-unitofmeasure.component';
 import { EditUnitOfMeasureComponent } from './unit_of_measures/edit/edit-unitofmeasure.component';
 import { LoadingIdicatorComponent } from './shared/comppnents/loading-indicator/loading-indicator.component';
+import { BackIndicatorComponent } from './shared/comppnents/back-indicator/back-indicator.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { LoadingIdicatorComponent } from './shared/comppnents/loading-indicator/
     EditProductTypeComponent,
     CreateUnitOfMeasureComponent,
     EditUnitOfMeasureComponent,
-    LoadingIdicatorComponent
+    LoadingIdicatorComponent,
+    BackIndicatorComponent
   ],
   imports: [
     BrowserModule,
