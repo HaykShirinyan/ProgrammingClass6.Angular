@@ -3,7 +3,7 @@ import { UnitOfMeasure } from "../../shared/models/unitOfMeasure";
 import { UnitOfMeasureService } from "../../shared/services/unitOfMeasure.service";
 
 @Component({
-  templateUrl: './unitOfMeasure-list.component.html',
+  templateUrl: './unit-of-measure-list.component.html',
   standalone: false
 })
 export class UnitOfMeasureListComponent implements OnInit

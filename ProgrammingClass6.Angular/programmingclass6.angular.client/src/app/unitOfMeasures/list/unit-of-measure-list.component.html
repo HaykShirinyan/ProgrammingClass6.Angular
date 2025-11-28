@@ -3,11 +3,18 @@
   Units list
 </h2>
 
+<div class="d-flex justify-content-end">
+  <a class="btn btn-primary" [routerLink]="['create']">
+    Create Unit
+  </a>
+</div>
+
 <table class="table">
   <thead>
     <tr>
       <th> Id </th>
       <th> Unit </th>
+      <th> Actions </th>
     </tr>
   </thead>
 
@@ -15,6 +22,11 @@
     <tr *ngFor="let unitOfMeasure of unitOfMeasures">
       <td>{{unitOfMeasure.id}}</td>
       <td>{{unitOfMeasure.unit}}</td>
+      <td>
+        <a class="btn btn-secondary" [routerLink]="['edit', unitOfMeasure.id]">
+          Edit
+        </a>
+      </td>
     </tr>
   </tbody>
 </table>

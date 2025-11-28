@@ -8,8 +8,12 @@ import { ProductListComponent } from './products/list/product-list.component';
 import { CreateProductComponent } from './products/create/create-product.component';
 import { FormsModule } from '@angular/forms';
 import { EditProductComponent } from './products/edit/edit-product.component';
-import { UnitOfMeasureListComponent } from './unitOfMeasures/list/unitOfMeasure-list.component';
-import { ProductTypeListComponent } from './productTypes/list/productType-list.component';
+import { UnitOfMeasureListComponent } from './unitOfMeasures/list/unit-of-measure-list.component';
+import { ProductTypeListComponent } from './productTypes/list/product-type-list.component';
+import { CreateProductTypeComponent } from './productTypes/create/create-product-type.component';
+import { CreateUnitOfMeasureComponent } from './unitOfMeasures/create/create-unit-of-measure.component';
+import { EditProductTypeComponent } from './productTypes/edit/edit-product-type.component';
+import { EditUnitOfMeasureComponent } from './unitOfMeasures/edit/edit-unit-of-measure.component';
 
 
 
@@ -20,7 +24,11 @@ import { ProductTypeListComponent } from './productTypes/list/productType-list.c
     CreateProductComponent,
     EditProductComponent,   
     ProductTypeListComponent,
-    UnitOfMeasureListComponent
+    CreateProductTypeComponent,
+    EditProductTypeComponent,
+    UnitOfMeasureListComponent,
+    CreateUnitOfMeasureComponent,
+    EditUnitOfMeasureComponent
   ],
   imports: [
     BrowserModule,

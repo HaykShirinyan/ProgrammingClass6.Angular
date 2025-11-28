@@ -19,4 +19,19 @@ export class UnitOfMeasureService
   {
     return this._http.get<UnitOfMeasure[]>('api/unit-of-measures')
   }
+
+  public create(unitOfMeasure: UnitOfMeasure): Observable<UnitOfMeasure>
+  {
+    return this._http.post<UnitOfMeasure>('api/unit-of-measures', unitOfMeasure);
+  }
+
+  public get(id: number): Observable<UnitOfMeasure> 
+  {
+    return this._http.get<UnitOfMeasure>('api/unit-of-measures/' + id);
+  }
+
+  public update(unitOfMeasure: UnitOfMeasure): Observable<UnitOfMeasure>
+  {
+    return this._http.put<UnitOfMeasure>('api/unit-of-measures/' + unitOfMeasure.id, unitOfMeasure);
+  }
 }
