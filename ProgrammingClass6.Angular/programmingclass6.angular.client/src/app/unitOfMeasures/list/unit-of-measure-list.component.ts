@@ -12,6 +12,8 @@ export class UnitOfMeasureListComponent implements OnInit
 
   public unitOfMeasures: UnitOfMeasure[] = [];
 
+  public isLoading: boolean = false;
+
   constructor(unitOfMeasureService: UnitOfMeasureService)
   {
     this._unitOfMeasureService = unitOfMeasureService;
@@ -19,9 +21,12 @@ export class UnitOfMeasureListComponent implements OnInit
 
   public ngOnInit(): void
   {
+    this.isLoading = true;
+
     this._unitOfMeasureService.getAll()
       .subscribe(unitOfMeasuresFromApi => {
         this.unitOfMeasures = unitOfMeasuresFromApi;
+        this.isLoading = false;
       });
   }
 }

@@ -19,6 +19,8 @@ export class EditUnitOfMeasureComponent implements OnInit
 
   public unitOfMeasure: UnitOfMeasure = {};
 
+  public isLoading: boolean = false;
+    
   constructor(unitOfMeasureService: UnitOfMeasureService,
     activatedRoute: ActivatedRoute,
     router: Router)
@@ -30,11 +32,14 @@ export class EditUnitOfMeasureComponent implements OnInit
 
   public ngOnInit(): void
   {
+    this.isLoading = true;
+
     const id = this._activatedRoute.snapshot.paramMap.get('id')!;
 
     this._unitOfMeasureService.get(parseInt(id))
       .subscribe(unitOfMeasur => {
         this.unitOfMeasure = unitOfMeasur;
+        this.isLoading = false;
       });
   }
 

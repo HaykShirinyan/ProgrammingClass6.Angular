@@ -1,9 +1,11 @@
 
+<loading-indicator *ngIf="isLoading" [message]="'Loading creat...'"/>
+
 <h1>
   Create product type
 </h1>
 
-<form #productTypeForm="ngForm" (ngSubmit)="CreateProductType(productTypeForm)">
+<form #productTypeForm="ngForm" (ngSubmit)="CreateProductType(productTypeForm)">  
   <div class="mb-3">
     <label class="form-label" for="productType-name">
       Name
@@ -14,7 +16,7 @@
            maxlength="50"
            class="form-control"
            [(ngModel)]="productType.name"
-           #nameField="ngModel"/>
+           #nameField="ngModel" />
     <div *ngIf="nameField.errors && productTypeForm.submitted" class="text-danger">
       <div *ngIf="nameField.errors['required']">
         The name field is required

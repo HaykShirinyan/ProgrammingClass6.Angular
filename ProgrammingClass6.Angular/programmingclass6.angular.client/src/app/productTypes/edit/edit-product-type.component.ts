@@ -18,6 +18,8 @@ export class EditProductTypeComponent implements OnInit
 
   public productType: ProductType = {};
 
+  public isLoading: boolean = false;
+  
   constructor(productTypeService: ProductTypeService,
     activatedRoute: ActivatedRoute,
     router: Router)
@@ -27,12 +29,16 @@ export class EditProductTypeComponent implements OnInit
     this._router = router;
   }
 
-  public ngOnInit(): void {
+  public ngOnInit(): void
+  {
+    this.isLoading = true;
+
     const id = this._activatedRoute.snapshot.paramMap.get('id')!;
 
     this._productTypeService.get(parseInt(id))
       .subscribe(productType => {
         this.productType = productType;
+        this.isLoading = false;
       });
   }
 

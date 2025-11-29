@@ -14,6 +14,7 @@ import { CreateProductTypeComponent } from './productTypes/create/create-product
 import { CreateUnitOfMeasureComponent } from './unitOfMeasures/create/create-unit-of-measure.component';
 import { EditProductTypeComponent } from './productTypes/edit/edit-product-type.component';
 import { EditUnitOfMeasureComponent } from './unitOfMeasures/edit/edit-unit-of-measure.component';
+import { LoadingIdicatorComponent } from './shared/comppnents/loading-indicator/loading-indicator.component';
 
 
 
@@ -28,7 +29,8 @@ import { EditUnitOfMeasureComponent } from './unitOfMeasures/edit/edit-unit-of-m
     EditProductTypeComponent,
     UnitOfMeasureListComponent,
     CreateUnitOfMeasureComponent,
-    EditUnitOfMeasureComponent
+    EditUnitOfMeasureComponent,    
+    LoadingIdicatorComponent
   ],
   imports: [
     BrowserModule,

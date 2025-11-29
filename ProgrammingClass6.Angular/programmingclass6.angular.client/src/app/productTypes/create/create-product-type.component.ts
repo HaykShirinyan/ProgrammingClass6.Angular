@@ -1,3 +1,4 @@
+
 import { Component } from "@angular/core";
 import { ProductType } from "../../shared/models/productType";
 import { ProductTypeService } from "../../shared/services/productType.service";
@@ -17,6 +18,8 @@ export class CreateProductTypeComponent
 
   public productType: ProductType = {};
 
+  public isLoading: boolean = false;
+
   constructor(productTypeService: ProductTypeService, router: Router)
   {
     this._productTypeService = productTypeService;
@@ -25,10 +28,13 @@ export class CreateProductTypeComponent
 
   public CreateProductType(productTypeForm: NgForm): void
   {
+    this.isLoading = true;
+
     if (productTypeForm.valid)
     {
       this._productTypeService.create(this.productType).subscribe(() => {
         this._router.navigate(['./productTypes']);
+        this.isLoading = false;
       });
     }    
   }

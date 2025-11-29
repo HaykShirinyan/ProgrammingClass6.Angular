@@ -17,6 +17,8 @@ export class CreateUnitOfMeasureComponent
 
   public unitOfMeasure: UnitOfMeasure = {};
 
+  public isLoading: boolean = false;
+
   constructor(unitOfMeasureService: UnitOfMeasureService, router: Router)
   {
     this._unitOfMeasureService = unitOfMeasureService;
@@ -27,8 +29,11 @@ export class CreateUnitOfMeasureComponent
   {
     if (unitForm.valid)
     {
+      this.isLoading = true;
+
       this._unitOfMeasureService.create(this.unitOfMeasure).subscribe(() => {
         this._router.navigate(['./unitOfMeasures']);
+        this.isLoading = false;
       });
     }
     
