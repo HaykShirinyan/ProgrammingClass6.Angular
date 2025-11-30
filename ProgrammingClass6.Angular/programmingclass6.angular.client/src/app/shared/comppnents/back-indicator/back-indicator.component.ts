@@ -10,5 +10,5 @@ import { Component, Input } from '@angular/core';
 
 export class BackIndicatorComponent{
   @Input()
-  public message: string = 'Back';
+  public message: string = '← Back..';
 }
