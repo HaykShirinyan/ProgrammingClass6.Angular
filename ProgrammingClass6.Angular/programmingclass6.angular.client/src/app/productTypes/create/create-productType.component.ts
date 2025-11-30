@@ -19,9 +19,9 @@ export class CreateProductTypeComponent {
     this._router = router;
   }
 
-  public createProductType(productTypeForm: NgForm): void {
-    if (productTypeForm.valid) {
-      this._productTypeService["create"](this.productType).subscribe(() => {
+  public createProductType(typeForm: NgForm): void {
+    if (typeForm.valid) {
+      this._productTypeService.create(this.productType).subscribe(() => {
         this._router.navigate(['/productTypes']);
       });
     }
