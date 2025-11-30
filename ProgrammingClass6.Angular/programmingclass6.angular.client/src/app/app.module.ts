@@ -20,6 +20,8 @@ import { EditProductTypeComponent } from './productTypes/edit/edit-productType.c
 import { UnitOfMeasureListComponent } from './unitOfMeasures/list/unitOfMeasure-list.component';
 import { CreateUnitOfMeasureComponent } from './unitOfMeasures/create/create-unitOfMeasure.component';
 import { EditUnitOfMeasureComponent } from './unitOfMeasures/edit/edit-unitOfMeasure.component';
+import { BackButtonComponent } from './shared/comppnents/back-botton/back-button.component';
+
 
 @NgModule({
   declarations: [
@@ -35,12 +37,16 @@ import { EditUnitOfMeasureComponent } from './unitOfMeasures/edit/edit-unitOfMea
 
     UnitOfMeasureListComponent,
     CreateUnitOfMeasureComponent,
-    EditUnitOfMeasureComponent
+    EditUnitOfMeasureComponent,
+
+    LoadingIdicatorComponent,
+
+    BackButtonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi())

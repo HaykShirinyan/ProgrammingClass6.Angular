@@ -1,4 +1,7 @@
 
+<app-back-button></app-back-button>
+
+
 <h1>
   Create Product
 </h1>
@@ -16,9 +19,9 @@
            [(ngModel)]="product.name"
            #nameField="ngModel" />
     <div *ngIf="nameField.errors && productForm.submitted" class="text-danger">
-        <div *ngIf="nameField.errors['required']">
-          The Name field is required
-        </div>
+      <div *ngIf="nameField.errors['required']">
+        The Name field is required
+      </div>
     </div>
   </div>
 

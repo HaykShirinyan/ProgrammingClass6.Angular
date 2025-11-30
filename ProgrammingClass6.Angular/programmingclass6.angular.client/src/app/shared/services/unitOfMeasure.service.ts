@@ -1,31 +1,33 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { UnitOfMeasure } from "../models/unitOfMeasure";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { UnitOfMeasure } from '../models/unitOfMeasure';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UnitOfMeasureService {
-  private readonly _http: HttpClient;
+  private readonly api = 'https://127.0.0.1:50190/api/unit-of-measures';
 
-  constructor(http: HttpClient) {
-    this._http = http;
-  }
+  constructor(private http: HttpClient) { }
 
   public getAll(): Observable<UnitOfMeasure[]> {
-    return this._http.get<UnitOfMeasure[]>('api/unitOfMeasures');
+    return this.http.get<UnitOfMeasure[]>(this.api);
   }
 
   public create(unit: UnitOfMeasure): Observable<UnitOfMeasure> {
-    return this._http.post<UnitOfMeasure>('api/unitOfMeasures', unit);
+    return this.http.post<UnitOfMeasure>(this.api, unit);
   }
 
   public get(id: number): Observable<UnitOfMeasure> {
-    return this._http.get<UnitOfMeasure>('api/unitOfMeasures/' + id);
+    return this.http.get<UnitOfMeasure>(`${this.api}/${id}`);
   }
 
   public update(unit: UnitOfMeasure): Observable<UnitOfMeasure> {
-    return this._http.put<UnitOfMeasure>('api/unitOfMeasures/' + unit.id, unit);
+    return this.http.put<UnitOfMeasure>(`${this.api}/${unit.id}`, unit);
+  }
+
+  public delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.api}/${id}`);
   }
 }

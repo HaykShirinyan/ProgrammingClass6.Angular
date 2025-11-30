@@ -1,12 +1,18 @@
 
+<loading-indicator *ngIf="isLoading" message="Loading ProductTypes..." />
+<app-back-button></app-back-button>
+
+
+
+
 <h1>
   ProductType List
 </h1>
 
 <div class="d-flex justify-content-end">
-<a class="btn btn-primary" [routerLink]="['create']">
-  Create ProductType
-</a>
+  <a class="btn btn-primary" [routerLink]="['create']">
+    Create ProductType
+  </a>
 </div>
 
 <table class="table table-striped">

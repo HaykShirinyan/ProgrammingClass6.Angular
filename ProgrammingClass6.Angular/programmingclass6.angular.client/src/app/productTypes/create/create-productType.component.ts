@@ -1,29 +1,36 @@
-import { Component } from "@angular/core";
-import { ProductType } from "../../shared/models/productType";
-import { ProductTypeService } from "../../shared/services/productType.service";
-import { Router } from "@angular/router";
-import { NgForm } from "@angular/forms";
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ProductType } from '../../shared/models/productType';
+import { ProductTypeService } from '../../shared/services/productType.service';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './create-productType.component.html',
   standalone: false
 })
 export class CreateProductTypeComponent {
-  private readonly _productTypeService: ProductTypeService;
-  private readonly _router: Router;
 
-  public productType: ProductType = {};
+  public productType: ProductType = {
+    name: '',
+    description: ''
+  };
 
-  constructor(productTypeService: ProductTypeService, router: Router) {
-    this._productTypeService = productTypeService;
-    this._router = router;
-  }
+  constructor(
+    private readonly productTypeService: ProductTypeService,
+    private readonly router: Router
+  ) { }
 
   public createProductType(typeForm: NgForm): void {
     if (typeForm.valid) {
-      this._productTypeService.create(this.productType).subscribe(() => {
-        this._router.navigate(['/productTypes']);
-      });
+      const body = {
+        name: this.productType.name,
+        description: this.productType.description
+      };
+
+      this.productTypeService.create(body)
+        .subscribe(() => {
+          this.router.navigate(['/productTypes']);
+        });
     }
   }
 }
