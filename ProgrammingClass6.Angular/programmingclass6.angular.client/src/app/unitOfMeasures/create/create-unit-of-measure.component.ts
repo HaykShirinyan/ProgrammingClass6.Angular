@@ -19,6 +19,8 @@ export class CreateUnitOfMeasureComponent
 
   public isLoading: boolean = false;
 
+  public isBack: boolean = true;
+
   constructor(unitOfMeasureService: UnitOfMeasureService, router: Router)
   {
     this._unitOfMeasureService = unitOfMeasureService;

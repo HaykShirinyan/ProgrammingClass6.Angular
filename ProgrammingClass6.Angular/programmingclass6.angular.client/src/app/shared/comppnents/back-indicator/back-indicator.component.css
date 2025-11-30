@@ -1,2 +1,21 @@
-body {
+
+.back-button {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: 0.2s ease;
+  user-select: none;
 }
+
+.back-button {
+  background: transparent;
+}
+  
+  .back-button:hover {
+    background: #e6e6e6;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  }

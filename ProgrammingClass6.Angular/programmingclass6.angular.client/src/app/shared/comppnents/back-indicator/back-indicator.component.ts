@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'back-indicator',
@@ -9,5 +9,6 @@ import { Component } from '@angular/core';
   })
 
 export class BackIndicatorComponent{
-
+  @Input()
+  public message: string = 'Back';
 }
