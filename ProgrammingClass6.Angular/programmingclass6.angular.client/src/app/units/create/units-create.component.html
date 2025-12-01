@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+<h1>
+	Create units of measure
+</h1>
+
+<form (ngSubmit)="createUnitsType()">
+	<div class="mb-3">
+		<label for="units-name" class="form-label">Units Name</label>
+		<input id="units-name" name="name" class="form-control"
+		[(ngModel)]="units.unit">
+	</div>
+
+	<div>
+		<button type="submit" class="btn btn-primary">
+			Save
+		</button>
+	</div>
+</form>

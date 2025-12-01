@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<h1>
+	Edit Units of Measures
+</h1>
+
+<form #typeForm="ngForm" (ngSubmit)="updateMeasureUnit(typeForm)">
+  <div class="mb-3">
+    <label for="unit-name" class="form-label">Unit</label>
+    <input id="unit-name"
+           name="unit"
+           class="form-control"
+           [(ngModel)]="unitsOfMeasure.unit"
+           required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

@@ -1,4 +1,4 @@
-
+<app-navbar></app-navbar>
 <loading-indicator *ngIf="isLoading" message="Loading Products..." />
 
 <h1>
@@ -38,7 +38,7 @@
         {{product.quantity}}
       </td>
       <td>
-        {{product.unitPrice}}
+        ${{product.unitPrice}}
       </td>
       <td>
         <a class="btn btn-secondary" [routerLink]="['edit', product.id]">
