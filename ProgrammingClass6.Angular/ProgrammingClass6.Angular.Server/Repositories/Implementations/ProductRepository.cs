@@ -1,4 +1,5 @@
-﻿using ProgrammingClass6.Angular.Server.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ProgrammingClass6.Angular.Server.Data;
 using ProgrammingClass6.Angular.Server.Models;
 using ProgrammingClass6.Angular.Server.Repositories.Definitions;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace ProgrammingClass6.Angular.Server.Repositories.Implementations
         {
             return _dbContext
                 .Products
+                .Include(product => product.Manufacturer)
                 .ToList();
         }
 
@@ -25,6 +27,7 @@ namespace ProgrammingClass6.Angular.Server.Repositories.Implementations
         {
             return _dbContext
                 .Products
+                .Include(product => product.Manufacturer)
                 .SingleOrDefault(product => product.Id == id);
         }
 

@@ -10,6 +10,8 @@ namespace ProgrammingClass6.Angular.Server.Data
         public DbSet<Unit_Of_Measure> Unit_Of_Measures { get; set; }
 
 
+        public DbSet<Manufacturer> Manufacturers { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
