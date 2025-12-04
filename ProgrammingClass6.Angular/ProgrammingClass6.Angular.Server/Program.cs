@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ProgrammingClass6.Angular.Server.Data;
 using ProgrammingClass6.Angular.Server.Repositories.Definitions;
 using ProgrammingClass6.Angular.Server.Repositories.Implementations;
+using System.Reflection;
 
 namespace ProgrammingClass6.Angular.Server
 {
@@ -24,7 +25,10 @@ namespace ProgrammingClass6.Angular.Server
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            builder.Services.AddAutoMapper(config => { }, Assembly.GetExecutingAssembly());
+
             builder.Services.AddTransient<IProductRepository, ProductRepository>();
+            builder.Services.AddTransient<IManufacturerRepository, ManufacturerRepository>();
 
             var app = builder.Build();
 

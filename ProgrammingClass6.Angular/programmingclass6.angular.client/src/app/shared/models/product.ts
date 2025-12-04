@@ -1,3 +1,4 @@
+import { Manufacturer } from "./manufacturer";
 
 export interface Product {
   id?: number;
@@ -5,4 +6,6 @@ export interface Product {
   description?: string;
   quantity?: number;
   unitPrice?: number;
+
+  manufacturer?: Manufacturer;
 }
