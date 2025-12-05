@@ -32,7 +32,7 @@ export class CreateUnitOfMeasureComponent
       this.isLoading = true;
 
       this._unitOfMeasureService.create(this.unitOfMeasure).subscribe(() => {
-        this._router.navigate(['./unitOfMeasures']);
+        this._router.navigate(['./unit-of-measures']);
         this.isLoading = false;
       });
     }

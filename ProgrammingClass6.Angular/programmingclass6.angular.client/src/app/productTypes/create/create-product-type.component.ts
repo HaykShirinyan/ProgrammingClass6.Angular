@@ -33,7 +33,7 @@ export class CreateProductTypeComponent
     if (productTypeForm.valid)
     {
       this._productTypeService.create(this.productType).subscribe(() => {
-        this._router.navigate(['./productTypes']);
+        this._router.navigate(['./product-types']);
         this.isLoading = false;
       });
     }    

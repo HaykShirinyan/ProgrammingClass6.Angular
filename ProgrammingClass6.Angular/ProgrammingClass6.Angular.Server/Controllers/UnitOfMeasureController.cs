@@ -45,7 +45,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(UnitOfMeasure unitOfMeasure, int id)
+        public IActionResult Update(int id, UnitOfMeasure unitOfMeasure)
         {
             if(id != unitOfMeasure?.Id)
             {

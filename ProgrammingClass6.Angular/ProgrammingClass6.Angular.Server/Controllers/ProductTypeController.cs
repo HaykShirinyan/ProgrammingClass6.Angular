@@ -45,7 +45,7 @@ namespace ProgrammingClass6.Angular.Server.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(ProductType productType, int id)
+        public IActionResult Update(int id, ProductType productType)
         {
             if(id != productType?.Id)
             {
