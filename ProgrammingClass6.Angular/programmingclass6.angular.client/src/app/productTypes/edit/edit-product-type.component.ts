@@ -46,7 +46,7 @@ export class EditProductTypeComponent implements OnInit
   {
     this._productTypeService.update(this.productType)
       .subscribe(() => {
-        this._router.navigate(['/product-types']);
+        this._router.navigate(['./product-types']);
       })
   }
 }

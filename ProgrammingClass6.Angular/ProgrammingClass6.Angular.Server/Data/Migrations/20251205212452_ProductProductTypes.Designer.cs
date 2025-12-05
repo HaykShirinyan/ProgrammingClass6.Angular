@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProgrammingClass6.Angular.Server.Data;
 
@@ -11,9 +12,11 @@ using ProgrammingClass6.Angular.Server.Data;
 namespace ProgrammingClass6.Angular.Server.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251205212452_ProductProductTypes")]
+    partial class ProductProductTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,9 +73,6 @@ namespace ProgrammingClass6.Angular.Server.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UnitOfMeasureId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(18,2)");
 
@@ -81,8 +81,6 @@ namespace ProgrammingClass6.Angular.Server.Data.Migrations
                     b.HasIndex("ManufacturerId");
 
                     b.HasIndex("ProductTypeId");
-
-                    b.HasIndex("UnitOfMeasureId");
 
                     b.ToTable("Products");
                 });
@@ -133,15 +131,9 @@ namespace ProgrammingClass6.Angular.Server.Data.Migrations
                         .WithMany()
                         .HasForeignKey("ProductTypeId");
 
-                    b.HasOne("ProgrammingClass6.Angular.Server.Models.UnitOfMeasure", "UnitOfMeasure")
-                        .WithMany()
-                        .HasForeignKey("UnitOfMeasureId");
-
                     b.Navigation("Manufacturer");
 
                     b.Navigation("ProductType");
-
-                    b.Navigation("UnitOfMeasure");
                 });
 #pragma warning restore 612, 618
         }

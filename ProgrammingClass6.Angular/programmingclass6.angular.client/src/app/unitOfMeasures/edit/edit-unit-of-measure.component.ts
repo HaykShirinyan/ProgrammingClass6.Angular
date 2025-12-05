@@ -49,7 +49,7 @@ export class EditUnitOfMeasureComponent implements OnInit
     {
       this._unitOfMeasureService.update(this.unitOfMeasure)
         .subscribe(() => {
-          this._router.navigate(['/unit-of-measures']);
+          this._router.navigate(['./unit-of-measures']);
         })
     }
   }
