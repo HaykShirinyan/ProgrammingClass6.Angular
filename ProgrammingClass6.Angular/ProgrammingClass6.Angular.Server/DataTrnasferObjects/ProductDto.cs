@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ProgrammingClass6.Angular.Server.Models
+namespace ProgrammingClass6.Angular.Server.DataTrnasferObjects
 {
-    public class Product
+    public class ProductDto
     {
-        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -18,7 +17,6 @@ namespace ProgrammingClass6.Angular.Server.Models
 
         public decimal UnitPrice { get; set; }
 
-        public int? ManufacturerId { get; set; }
-        public Manufacturer Manufacturer { get; set; }
+        public ReferencedManufacturerDto Manufacturer { get; set; }
     }
 }

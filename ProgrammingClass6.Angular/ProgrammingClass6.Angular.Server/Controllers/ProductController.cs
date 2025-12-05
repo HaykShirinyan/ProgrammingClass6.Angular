@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using ProgrammingClass6.Angular.Server.DataTrnasferObjects;
 using ProgrammingClass6.Angular.Server.Models;
 using ProgrammingClass6.Angular.Server.Repositories.Definitions;
 
@@ -9,17 +11,22 @@ namespace ProgrammingClass6.Angular.Server.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
+        private readonly IMapper _mapper;
 
-        public ProductController(IProductRepository productRepository)
+        public ProductController(IProductRepository productRepository, IMapper mapper)
         {
             _productRepository = productRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
             var products = _productRepository.GetAll();
-            return Ok(products);
+
+            var dtoList = _mapper.Map<List<Product>, List<ProductDto>>(products);
+
+            return Ok(dtoList);
         }
 
         [HttpGet("{id}")]
@@ -32,28 +39,36 @@ namespace ProgrammingClass6.Angular.Server.Controllers
                 return NotFound();
             }
 
-            return Ok(product);
+            var productDto = _mapper.Map<Product, ProductDto>(product);
+
+            return Ok(productDto);
         }
 
         [HttpPost]
-        public IActionResult Create(Product product)
+        public IActionResult Create(ProductDto productDto)
         {
-            _productRepository.Add(product);
+            var productModel = _mapper.Map<ProductDto, Product>(productDto);
 
-            return Ok(product);
+            _productRepository.Add(productModel);
+
+            productDto.Id = productModel.Id;
+
+            return Ok(productDto);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, Product product)
+        public IActionResult Update(int id, ProductDto productDto)
         {
-            if (id != product?.Id)
+            if (id != productDto?.Id)
             {
                 return BadRequest("Id in the body doesn't match with Id in the URL.");
             }
 
-            _productRepository.Update(product);
+            var productModel = _mapper.Map<ProductDto, Product>(productDto);
 
-            return Ok(product);
+            _productRepository.Update(productModel);
+
+            return Ok(productDto);
         }
 
         [HttpDelete("{id}")]
@@ -63,7 +78,9 @@ namespace ProgrammingClass6.Angular.Server.Controllers
 
             if (product != null)
             {
-                return Ok(product);
+                var productDto = _mapper.Map<Product, ProductDto>(product);
+
+                return Ok(productDto);
             }
 
             return NotFound();

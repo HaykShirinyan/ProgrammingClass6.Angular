@@ -7,6 +7,8 @@ namespace ProgrammingClass6.Angular.Server.Data
     {
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<Manufacturer> Manufacturers { get; set; }
+
         public DbSet<ProductType> ProductTypes { get; set; }
 
         public DbSet<UnitOfMeasure> UnitOfMeasures { get; set; }
