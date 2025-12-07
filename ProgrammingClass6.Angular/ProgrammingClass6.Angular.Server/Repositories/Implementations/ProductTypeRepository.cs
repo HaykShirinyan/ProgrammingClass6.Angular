@@ -1,4 +1,5 @@
-﻿using ProgrammingClass6.Angular.Server.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ProgrammingClass6.Angular.Server.Data;
 using ProgrammingClass6.Angular.Server.Models;
 using ProgrammingClass6.Angular.Server.Repositories.Definitions;
 
@@ -15,11 +16,16 @@ namespace ProgrammingClass6.Angular.Server.Repositories.Implementations
 
         public List<ProductType> GetAll()
         {
-            return _dbcontext.ProductTypes.ToList();
+            return _dbcontext
+                .ProductTypes
+                .Include(pt => pt.Manufacturer)
+                .ToList();
         }
         public ProductType Get(int id)
         {
-            return _dbcontext.ProductTypes.SingleOrDefault(pt => pt.Id == id);
+            return _dbcontext.ProductTypes
+                .Include(pt => pt.Manufacturer)
+                .SingleOrDefault(pt => pt.Id == id);
         }
 
         public ProductType Add(ProductType productType)

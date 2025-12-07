@@ -89,6 +89,9 @@ namespace ProgrammingClass6.Angular.Server.Data.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<int?>("ManufacturerId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -105,38 +108,9 @@ namespace ProgrammingClass6.Angular.Server.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ManufacturerId");
+
                     b.ToTable("ProductTypes");
-                });
-
-            modelBuilder.Entity("ProgrammingClass6.Angular.Server.Models.UnitOfMeasure", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Quantity")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Type")
-                        .HasMaxLength(500)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("UnitOfMeasureValue")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UnitOfMeasures");
                 });
 
             modelBuilder.Entity("ProgrammingClass6.Angular.Server.Models.Unit_Of_Measure", b =>
@@ -171,6 +145,15 @@ namespace ProgrammingClass6.Angular.Server.Data.Migrations
                 });
 
             modelBuilder.Entity("ProgrammingClass6.Angular.Server.Models.Product", b =>
+                {
+                    b.HasOne("ProgrammingClass6.Angular.Server.Models.Manufacturer", "Manufacturer")
+                        .WithMany()
+                        .HasForeignKey("ManufacturerId");
+
+                    b.Navigation("Manufacturer");
+                });
+
+            modelBuilder.Entity("ProgrammingClass6.Angular.Server.Models.ProductType", b =>
                 {
                     b.HasOne("ProgrammingClass6.Angular.Server.Models.Manufacturer", "Manufacturer")
                         .WithMany()

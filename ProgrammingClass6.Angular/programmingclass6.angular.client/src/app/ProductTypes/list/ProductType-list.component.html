@@ -20,6 +20,7 @@
       <th>Name</th>
       <th>Brand</th>
       <th>Type</th>
+      <th>Manufacturer</th>
       <th>Price</th>
       <th>Quantity</th>
       <th>Actions</th>
@@ -32,13 +33,19 @@
       <td>{{ productType.name }}</td>
       <td>{{ productType.brand }}</td>
       <td>{{ productType.type }}</td>
-      <td>{{ productType.price }}</td>
-      <td>{{ productType.quantity }}</td>
       <td>
-        <a class="btn btn-secondary" [routerLink]="['edit', productType.id]">
-          Edit
-        </a>
-            </td>
-    </tr>
+      <ng-container *ngIf="productType.manufacturer">
+        {{ productType.manufacturer.name}}
+      </ng-container>
+        </td>
+      <td>{{ productType.price
+        }}</td>
+        <td>{{ productType.quantity }}</td>
+        <td>
+          <a class="btn btn-secondary" [routerLink]="['edit', productType.id]">
+            Edit
+          </a>
+        </td>
+</tr>
   </tbody>
 </table>

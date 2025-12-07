@@ -8,7 +8,7 @@
 
 <form #productForm="ngForm" (ngSubmit)="updateProductType(productForm)">
   <div class="mb-3">
-    <label>
+    <label class="form-label" for="producttype-name">
       Name
     </label>
     <input id="producttype-name"
@@ -73,8 +73,27 @@
            [(ngModel)]="productType.quantity" />
   </div>
 
-  <button type="submit" class="btn btn-primary">
-    Save
-  </button>
+  <div class="mb-3">
+    <label class="form-label" for="producttype-manufacturer">
+      Manufacturer
+    </label>
+    <select id="producttype-manufacturer"
+            name="manufacturer"
+            class="form-control"
+            [ngModel]="productType.manufacturer?.id">
+      (ngModelChange)="onManufacturerChange($event)"
+      <option> --Please select--</option>
+
+      <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.id">
+        {{ manufacturer.name }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-primary">
+      Save
+    </button>
+  </div>
 
 </form>
