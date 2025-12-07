@@ -20,6 +20,8 @@ namespace ProgrammingClass6.Angular.Server.Repositories.Implementations
             return _dbContext
                 .Products
                 .Include(product => product.Manufacturer)
+                .Include(product => product.ProductType)
+                .Include(product => product.UnitOfMeasure)
                 .ToList();
         }
 
@@ -28,6 +30,8 @@ namespace ProgrammingClass6.Angular.Server.Repositories.Implementations
             return _dbContext
                 .Products
                 .Include(product => product.Manufacturer)
+                .Include(product => product.ProductType)
+                .Include(product => product.UnitOfMeasure)
                 .SingleOrDefault(product => product.Id == id);
         }
 

@@ -20,6 +20,8 @@
       <th>Manufacturer</th>
       <th>Quantity</th>
       <th>Unit Price</th>
+      <th>Type</th>
+      <th>Unit</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -46,6 +48,16 @@
       <td>
         {{product.unitPrice}}
       </td>
+      <td>
+        <ng-container *ngIf="product.productType">
+          {{product.productType.name}}
+        </ng-container>
+      </td>
+      <td>
+        <ng-container *ngIf="product.unitOfMeasure">
+          {{product.unitOfMeasure.unit}}
+        </ng-container>
+      </td>     
       <td>
         <a class="btn btn-secondary" [routerLink]="['edit', product.id]">
           Edit

@@ -18,5 +18,9 @@ namespace ProgrammingClass6.Angular.Server.DataTrnasferObjects
         public decimal UnitPrice { get; set; }
 
         public ReferencedManufacturerDto Manufacturer { get; set; }
+
+        public ReferencedProductTypeDto ProductType { get; set; }
+
+        public ReferencedUnitOfMeasureDto UnitOfMeasure { get; set; }
     }
 }

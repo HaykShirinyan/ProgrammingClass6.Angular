@@ -5,6 +5,10 @@ import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 import { ManufacturerService } from "../../shared/services/manufacturer.service";
 import { Manufacturer } from "../../shared/models/manufacturer";
+import { ProductType } from "../../shared/models/productType";
+import { UnitOfMeasure } from "../../shared/models/unitOfMeasure";
+import { ProductTypeService } from "../../shared/services/productType.service";
+import { UnitOfMeasureService } from "../../shared/services/unitOfMeasure.service";
 
 @Component({
   templateUrl: './create-product.component.html',
@@ -14,18 +18,26 @@ export class CreateProductComponent implements OnInit {
   private readonly _productService: ProductService;
   private readonly _router: Router;
   private readonly _manufacturerService: ManufacturerService;
+  private readonly _productTypeService: ProductTypeService;
+  private readonly _unitOfMeasureService: UnitOfMeasureService;
 
   public product: Product = {};
   public manufacturers: Manufacturer[] = [];
+  public productTypes: ProductType[] = [];
+  public unitOfMeasures: UnitOfMeasure[] = [];
 
   constructor(
     productService: ProductService,
     router: Router,
-    manufacturerService: ManufacturerService
+    manufacturerService: ManufacturerService,
+    productTypeService: ProductTypeService,
+    unitOfMeasureService: UnitOfMeasureService,
   ) {
     this._productService = productService;
     this._router = router;
     this._manufacturerService = manufacturerService;
+    this._productTypeService = productTypeService;
+    this._unitOfMeasureService = unitOfMeasureService;
   }
 
   public ngOnInit(): void {
@@ -33,6 +45,16 @@ export class CreateProductComponent implements OnInit {
       .subscribe(manufacturers => {
         this.manufacturers = manufacturers
       });
+
+    this._productTypeService.getAll()
+      .subscribe(productTypes => {
+        this.productTypes = productTypes
+      });
+
+    this._unitOfMeasureService.getAll()
+      .subscribe(unitOfMeasures => {
+        this.unitOfMeasures = unitOfMeasures
+      })
   }
 
   public manufacturerChanged(manufacturerId: number): void {
@@ -42,6 +64,26 @@ export class CreateProductComponent implements OnInit {
       };
     } else {
       this.product.manufacturer = undefined;
+    }
+  }
+
+  public productTypeChanged(productTypeId: number): void {
+    if (productTypeId) {
+      this.product.productType = {
+        id: productTypeId
+      };
+    } else {
+      this.product.productType = undefined;
+    }
+  }
+
+  public unitOfMeasureChanged(unitOfMeasureId: number): void {
+    if (unitOfMeasureId) {
+      this.product.unitOfMeasure = {
+        id: unitOfMeasureId
+      };
+    } else {
+      this.product.unitOfMeasure = undefined;
     }
   }
 
