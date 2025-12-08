@@ -1,39 +1,64 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { UnitOfMeasures } from "../../shared/models/unit_of_measure";
 import { UnitOfMeasureService } from "../../shared/services/unit-of-measure.service";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
-
-
+import { ManufacturerService } from "../../shared/services/manufacturer.service";
+import { Manufacturer } from "../../shared/models/manufacturer";
 
 @Component({
   templateUrl: './create-unitofmeasure.component.html',
   standalone: false
-
 })
-export class CreateUnitOfMeasureComponent {
+export class CreateUnitOfMeasureComponent implements OnInit {
   private readonly _unitOfMeasureService: UnitOfMeasureService;
   private readonly _router: Router;
+  private readonly _manufacturerService: ManufacturerService;
 
   public isLoading: boolean = false;
   public unitOfMeasure: UnitOfMeasures = {};
+  public manufacturers: Manufacturer[] = [];
 
-  constructor( _unitOfMeasureService: UnitOfMeasureService, router: Router) {
-    this._unitOfMeasureService = _unitOfMeasureService;
+  constructor(
+    unitOfMeasureService: UnitOfMeasureService,
+    router: Router,
+    manufacturerService: ManufacturerService
+  ) {
+    this._unitOfMeasureService = unitOfMeasureService;
     this._router = router;
+    this._manufacturerService = manufacturerService;
+  }
+
+  public ngOnInit(): void {
+    this._manufacturerService.getAll()
+      .subscribe((manufacturers: Manufacturer[]) => {
+        this.manufacturers = manufacturers;
+      });
+  }
+
+  public manufacturerChanged(manufacturerId: number): void {
+    if (manufacturerId) {
+      this.unitOfMeasure.manufacturer = {
+        id: manufacturerId
+      };
+    } else {
+      this.unitOfMeasure.manufacturer = undefined;
+
+    }
   }
 
   public createUnitOfMeasure(unitOfMeasureForm: NgForm): void {
     if (unitOfMeasureForm.valid) {
-       this.isLoading = true;
-       this._unitOfMeasureService.create(this.unitOfMeasure)
-         .subscribe(() => {
-           this._router.navigate(['/unit_of_measures']);
-         })
-         .add(() => this.isLoading = false);
+      this.isLoading = true;
+      this._unitOfMeasureService.create(this.unitOfMeasure)
+        .subscribe(() => {
+          this._router.navigate(['/unit_of_measures']);
+        })
+        .add(() => {
+          this.isLoading = false;
+        });
     }
   }
-   
 }
 
 

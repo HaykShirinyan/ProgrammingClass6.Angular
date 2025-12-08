@@ -1,4 +1,5 @@
-﻿using ProgrammingClass6.Angular.Server.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ProgrammingClass6.Angular.Server.Data;
 using ProgrammingClass6.Angular.Server.Models;
 using ProgrammingClass6.Angular.Server.Repositories.Definitions;
 
@@ -15,11 +16,16 @@ namespace ProgrammingClass6.Angular.Server.Repositories.Implementations
         }
         public List<Unit_Of_Measure> GetAll()
         {
-            return _dbcontext.Unit_Of_Measures.ToList();
+            return _dbcontext
+                .Unit_Of_Measures
+                .Include(uom => uom.Manufacturer)
+                .ToList();
         }
         public Unit_Of_Measure Get(int id)
         {
-            return _dbcontext.Unit_Of_Measures.SingleOrDefault(uom => uom.Id == id);
+            return _dbcontext.Unit_Of_Measures
+                .Include(uom => uom.Manufacturer)
+                .SingleOrDefault(uom => uom.Id == id);
         }
         public Unit_Of_Measure Add(Unit_Of_Measure unitOfMeasure)
         {

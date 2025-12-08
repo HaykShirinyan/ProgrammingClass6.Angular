@@ -1,3 +1,4 @@
+import { Manufacturer } from "./manufacturer";
 
 export interface UnitOfMeasures {
   id?: number;
@@ -6,4 +7,6 @@ export interface UnitOfMeasures {
   unitOfMeasureValue?: number;
   price?: number;
   quantity?: number;
+
+  manufacturer?: Manufacturer;
 }

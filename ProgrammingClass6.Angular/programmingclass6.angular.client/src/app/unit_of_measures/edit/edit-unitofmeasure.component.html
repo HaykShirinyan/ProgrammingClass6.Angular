@@ -72,9 +72,25 @@
            type="number"
            [(ngModel)]="unitOfMeasure.quantity" />
   </div>
-  <button type="submit" class="btn btn-primary">
-    Save
-  </button>
+  <div class="mb-3">
+    <label for="unitOfMeasure-manufacturer">Manufacturer</label>
+    <select id="unitOfMeasure-manufacturer"
+            name="manufacturer"
+            class="form-control"
+            [ngModel]="unitOfMeasure.manufacturer?.id"
+            (ngModelChange)="manufacturerChanged($event)">
+      <option value="">-- Select Manufacturer --</option>
+      <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.id">
+        {{ manufacturer.name }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-primary">
+      Save
+    </button>
+  </div>
 </form>
 
 

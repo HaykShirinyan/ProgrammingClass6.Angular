@@ -18,6 +18,7 @@
       <th>ID</th>
       <th>Name</th>
       <th>Type</th>
+      <th>Manufactuter</th>
       <th>UnitOfMeasureValue</th>
       <th>Price</th>
       <th>Quantity</th>
@@ -30,6 +31,11 @@
       <td>{{ unitOfMeasure.id }}</td>
       <td>{{ unitOfMeasure.name }}</td>
       <td>{{ unitOfMeasure.type }}</td>
+      <td>
+        <ng-container *ngIf="unitOfMeasure.manufacturer">
+          {{ unitOfMeasure.manufacturer.name }}
+        </ng-container>
+      </td>
       <td>{{ unitOfMeasure.unitOfMeasureValue }}</td>
       <td>{{ unitOfMeasure.price }}</td>
       <td>{{ unitOfMeasure.quantity }}</td>
@@ -38,7 +44,7 @@
           Edit
         </a>
 
-</tr>
+    </tr>
   </tbody>
 
 </table>
